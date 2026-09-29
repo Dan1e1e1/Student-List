@@ -46,10 +46,10 @@ int main() {
 	  if (input == 'a') {
 	    if (input1 == 1) {
 	      if (board[1][1] == ' ') {
-                board[1][1] = turn1;
+        	board[1][1] = turn1;
 	      } else {
-                cout << "fail";
-		reset_turn(turn, turn1);
+    	    cout << "fail";
+		    reset_turn(turn, turn1);
 	      }
 	    }
 	      if (input1 == 2) {
