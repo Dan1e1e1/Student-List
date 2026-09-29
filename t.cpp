@@ -7,9 +7,9 @@ using namespace std;
 int reset_turn(int turn, int turn1) {
   cout << "\n";
   if (turn == 1) {
-    turn1 = 'X';
-  } else {
     turn1 = 'O';
+  } else {
+    turn1 = 'X';
   }
   return turn1;
 }
@@ -44,11 +44,11 @@ int main() {
           cin >> input;
           cout << "Choose a nmuber (1,2,3): ";
           cin >> input1;
-	  if (input == 'a') {
-	    if (input1 == 1) {
-	      if (board[1][1] == ' ') {
-        	board[1][1] = turn1;
-	      } else {
+          if (input == 'a') {
+            if (input1 == 1) {
+              if (board[1][1] == ' ') {
+                board[1][1] = turn1;
+              } else {
     	        cout << "fail";
 		reset_turn(turn, turn1);
 	      }
