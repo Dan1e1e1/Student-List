@@ -22,7 +22,7 @@ int main() {
   };
   int rows = 4;
   int cols = 4;
-
+  
   bool game = true;
   int turn = 1;
   char turn1 = 'X';
