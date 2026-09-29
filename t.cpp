@@ -3,6 +3,15 @@
 #include <cstring>
 
 using namespace std;
+
+int reset_turn(int turn, int turn1) {
+  if (turn == 1) {
+    turn1 = 'X';
+  } else {
+    turn1 = 'O';
+  }
+  return turn1;
+}
 int main() {
   char board[4][4] = {
     {' ', '1', '2', '3'},
@@ -38,14 +47,19 @@ int main() {
 	    if (input1 == 1) {
 	      if (board[1][1] == ' ') {
                 board[1][1] = turn1;
-                con = false;
 	      } else {
                 cout << "fail";
-                con = false;
+		reset_turn(turn, turn1);
 	      }
 	    }
 	      if (input1 == 2) {
 	        board[1][2] = turn1;
+		if (board[1][2] == ' ') {
+		  board[1][2] = turn1;
+		} else {
+		  cout << "fail";
+		  reset_turn(turn, turn1);
+		  
 	    }
 	      if (input1 == 3) {
 	        board[1][3] = turn1;
@@ -87,6 +101,7 @@ int main() {
       }
       //stop infinite loop
       con = false;
+      }
     }
   }
 }
