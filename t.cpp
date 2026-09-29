@@ -5,6 +5,7 @@
 using namespace std;
 
 int reset_turn(int turn, int turn1) {
+  cout << "\n";
   if (turn == 1) {
     turn1 = 'X';
   } else {
@@ -48,23 +49,25 @@ int main() {
 	      if (board[1][1] == ' ') {
         	board[1][1] = turn1;
 	      } else {
-    	    cout << "fail";
-		    reset_turn(turn, turn1);
+    	        cout << "fail";
+		reset_turn(turn, turn1);
 	      }
 	    }
-	      if (input1 == 2) {
-	        board[1][2] = turn1;
-		if (board[1][2] == ' ') {
-		  board[1][2] = turn1;
-		} else {
-		  cout << "fail";
-		  reset_turn(turn, turn1);
-		  
+	    if (input1 == 2) {
+	      if (board[1][2] == ' ') {
+		board[1][2] = turn1;
+	      } else {
+		cout << "fail";
+		reset_turn(turn, turn1);
+	      }
 	    }
-	      if (input1 == 3) {
+	    if (input1 == 3) {
+	      if (board[1][2] == ' ') {
 	        board[1][3] = turn1;
+	      } else {
+		cout << "fail";
+		reset_turn(turn, turn1);
 	    }
-	      cout << board[i][j];
 	  }
 	  else if (input == 'b') {
 	    if (input1 == 1) {
@@ -76,7 +79,6 @@ int main() {
 	    if (input1 == 3) {
 	      board[2][3] = turn1;
 	    }
-	    cout << board[i][j];
 	  }
 	  else if (input == 'c') {
 	    if (input1 == 1) {
