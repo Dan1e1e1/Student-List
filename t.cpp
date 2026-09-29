@@ -4,14 +4,14 @@
 
 using namespace std;
 
-int reset_turn(int turn, int turn1) {
+int reset_turn(int &turn) {
   cout << "\n";
   if (turn == 1) {
-    turn1 = 'O';
+    turn = 0;
   } else {
-    turn1 = 'X';
+    turn = 1;
   }
-  return turn1;
+  return turn;
 }
 int main() {
   char board[4][4] = {
@@ -50,7 +50,7 @@ int main() {
                 board[1][1] = turn1;
               } else {
     	        cout << "fail";
-                reset_turn(turn, turn1);
+                reset_turn(turn);
 	        }
 	      }
             if (input1 == 2) {
@@ -58,7 +58,7 @@ int main() {
                 board[1][2] = turn1;
               } else {
                 cout << "fail";
-                reset_turn(turn, turn1);
+                reset_turn(turn);
 	        }
 	      }
             if (input1 == 3) {
@@ -66,7 +66,7 @@ int main() {
                 board[1][3] = turn1;
               } else {
                 cout << "fail";
-                reset_turn(turn, turn1);
+                reset_turn(turn);
                 }
               }
 	  }
