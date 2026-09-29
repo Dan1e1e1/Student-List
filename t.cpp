@@ -53,22 +53,22 @@ int main() {
                 reset_turn(turn, turn1);
 	        }
 	      }
-	    if (input1 == 2) {
-	      if (board[1][2] == ' ') {
+            if (input1 == 2) {
+              if (board[1][2] == ' ') {
                 board[1][2] = turn1;
-	      } else {
+              } else {
                 cout << "fail";
                 reset_turn(turn, turn1);
 	        }
 	      }
-	    if (input1 == 3) {
-	      if (board[1][3] == ' ') {
-	        board[1][3] = turn1;
-	      } else {
-		cout << "fail";
-		reset_turn(turn, turn1);
-	        }
-	      }
+            if (input1 == 3) {
+              if (board[1][3] == ' ') {
+                board[1][3] = turn1;
+              } else {
+                cout << "fail";
+                reset_turn(turn, turn1);
+                }
+              }
 	  }
 	  else if (input == 'b') {
 	    if (input1 == 1) {
