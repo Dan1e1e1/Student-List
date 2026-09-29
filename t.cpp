@@ -62,13 +62,14 @@ int main() {
 	        }
 	      }
 	    if (input1 == 3) {
-	      if (board[1][2] == ' ') {
-	         board[1][3] = turn1;
+	      if (board[1][3] == ' ') {
+	        board[1][3] = turn1;
 	      } else {
 		cout << "fail";
 		reset_turn(turn, turn1);
 	        }
 	      }
+	  }
 	  else if (input == 'b') {
 	    if (input1 == 1) {
 	      board[2][1] = turn1;
@@ -96,7 +97,6 @@ int main() {
               cout << board[i][j];
 	    	}
 	    	cout << "\n";
-	  }
 	}
 	//Formatting the printing so its in a 4x4
 	//cout << "\n";
