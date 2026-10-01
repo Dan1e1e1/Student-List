@@ -72,38 +72,96 @@ int main() {
 	  }
 	  else if (input == 'b') {
 	    if (input1 == 1) {
-	      board[2][1] = turn1;
-	    }
+	      if (board[2][1] == ' ') {
+	        board[2][1] = turn1;
+	      } else {
+		cout << "fail";
+		reset_turn(turn);
+	        }
+	      }
 	    if (input1 == 2) {
-	      board[2][2] = turn1;
-	    }
+	      if (board[2][2] == ' ') {
+	        board[2][2] = turn1;
+	      } else {
+		cout << "fail";
+		reset_turn(turn);
+	        }
+	      }
 	    if (input1 == 3) {
-	      board[2][3] = turn1;
+	      if (board[2][3] == ' ') {
+	        board[2][3] = turn1;
+	      } else {
+		cout << "fail";
+		reset_turn(turn);
+	      }
 	    }
 	  }
 	  else if (input == 'c') {
 	    if (input1 == 1) {
-	      board[3][1] = turn1;
-	    }
+	      if (board[3][1] == ' ') {
+	        board[3][1] = turn1;
+	      } else {
+		cout << "fail";
+		reset_turn(turn);
+	        }
+	      }
 	    if (input1 == 2) {
-	      board[3][2] = turn1;
-	    }
+	      if (board[3][2] == ' ') {
+	        board[3][2] = turn1;
+	      } else {
+		cout << "fail";
+		reset_turn(turn);
+	        }
+	      }
 	    if (input1 == 3) {
-	      board[3][3] = turn1;
-	    }
+	      if (board[3][3] == ' ') {
+	        board[3][3] = turn1;
+	      } else {
+		cout << "fail";
+		reset_turn(turn);
+	        }
+	      }
           }
+	  //printing board
           for (i = 0; i < rows; i++) {
             for (j = 0; j < cols; j++) {
               cout << board[i][j];
 	    	}
 	    	cout << "\n";
 	}
-	//Formatting the printing so its in a 4x4
-	//cout << "\n";
       }
-      //stop infinite loop
-      con = false;
+      //eventual win conditions
+	for (int i = 0; i < rows; i++) {
+	  for (int j = 0; j < cols; j++) {
+	    //Horizontal
+	    if (board[1][1] == 'X' && board[1][2] == 'X' && board[1][3] == 'X') {
+	      cout << "X wins";
+	    } else if (board[2][1] == 'X' && board[2][2] == 'X' && board[2][3] == 'X') {
+	      cout << "X wins";
+	    } else if (board[3][1] == 'X' && board[3][2] == 'X' && board[3][3] == 'X') {
+	      cout << "X wins";
+	    }
+	    //Vertial
+	    if (board[1][1] == 'X' && board[2][1] == 'X' && board[3][1] == 'X') {
+              cout << "X wins";
+            } else if (board[1][2] == 'X' && board[2][2] == 'X' && board[3][2] == 'X') {
+              cout << "X wins";
+            } else if (board[1][3] == 'X' && board[2][3] == 'X' && board[3][3] == 'X') {
+              cout << "X wins";
+            }
+	    //Diagonals
+	    if (board[1][1] == 'X' && board[2][2] == 'X' && board[3][3] == 'X') {
+              cout << "X wins";
+            } else if (board[3][1] == 'X' && board[2][2] == 'X' && board[1][3] == 'X') {
+              cout << "X wins";
+            } 
+
+
+
+	}
       }
+    con = false;
     }
   }
+}
 }
