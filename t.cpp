@@ -15,7 +15,7 @@ int reset_turn(int &turn) {
 }
 
 
-int x_win(int &x_points, bool &game) {
+int x_win(int &x_points, bool &game, char (&board)[4][4]) {
   cout << "X wins!";
   cout << "\n";
   x_points++;
@@ -27,8 +27,15 @@ int x_win(int &x_points, bool &game) {
     game = false;
   } else {
     cout << "lets play again";
+    char board[4][4] = {
+      {' ', '1', '2', '3'},
+      {'a', ' ' , ' ', ' '},
+      {'b', ' ', ' ', ' '},
+      {'c', ' ', ' ', ' '}
+    };
+
   }
-  return x_points, game;
+  return x_points, game, board[4][4];
 }
 int main() {
   char board[4][4] = {
@@ -156,32 +163,32 @@ int main() {
 	      //Horizontal
 	      if (board[1][1] == 'X' && board[1][2] == 'X' && board[1][3] == 'X') {
 		run_once = false;
-		x_win(x_points, game);
+		x_win(x_points, game, board);
 	      } else if (board[2][1] == 'X' && board[2][2] == 'X' && board[2][3] == 'X') {
 	        run_once = false;
-		x_win(x_points, game);
+		x_win(x_points, game, board);
 	      } else if (board[3][1] == 'X' && board[3][2] == 'X' && board[3][3] == 'X') {
 		run_once = false;
-		x_win(x_points, game);
+		x_win(x_points, game, board);
 	      }
 	    //Vertial
 	      if (board[1][1] == 'X' && board[2][1] == 'X' && board[3][1] == 'X') {
                 run_once = false;
-		x_win(x_points, game);
+		x_win(x_points, game, board);
               } else if (board[1][2] == 'X' && board[2][2] == 'X' && board[3][2] == 'X') {
                 run_once = false;
-		x_win(x_points, game);
+		x_win(x_points, game, board);
               } else if (board[1][3] == 'X' && board[2][3] == 'X' && board[3][3] == 'X') {
                 run_once = false;
-		x_win(x_points, game);
+		x_win(x_points, game, board);
               }
 	    //Diagonals
 	      if (board[1][1] == 'X' && board[2][2] == 'X' && board[3][3] == 'X') {
                 run_once = false;
-		x_win(x_points, game);
+		x_win(x_points, game, board);
               } else if (board[3][1] == 'X' && board[2][2] == 'X' && board[1][3] == 'X') {
                 run_once = false;
-		x_win(x_points, game);
+		x_win(x_points, game, board);
               }
 	    }
 
