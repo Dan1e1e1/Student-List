@@ -158,23 +158,30 @@ int main() {
 		run_once = false;
 		x_win(x_points, game);
 	      } else if (board[2][1] == 'X' && board[2][2] == 'X' && board[2][3] == 'X') {
-	        cout << "X wins";
+	        run_once = false;
+		x_win(x_points, game);
 	      } else if (board[3][1] == 'X' && board[3][2] == 'X' && board[3][3] == 'X') {
-	        cout << "X wins";
+		run_once = false;
+		x_win(x_points, game);
 	      }
 	    //Vertial
 	      if (board[1][1] == 'X' && board[2][1] == 'X' && board[3][1] == 'X') {
-                cout << "X wins";
+                run_once = false;
+		x_win(x_points, game);
               } else if (board[1][2] == 'X' && board[2][2] == 'X' && board[3][2] == 'X') {
-                cout << "X wins";
+                run_once = false;
+		x_win(x_points, game);
               } else if (board[1][3] == 'X' && board[2][3] == 'X' && board[3][3] == 'X') {
-                cout << "X wins";
+                run_once = false;
+		x_win(x_points, game);
               }
 	    //Diagonals
 	      if (board[1][1] == 'X' && board[2][2] == 'X' && board[3][3] == 'X') {
-                cout << "X wins";
+                run_once = false;
+		x_win(x_points, game);
               } else if (board[3][1] == 'X' && board[2][2] == 'X' && board[1][3] == 'X') {
-                cout << "X wins";
+                run_once = false;
+		x_win(x_points, game);
               }
 	    }
 
