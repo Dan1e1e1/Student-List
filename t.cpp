@@ -13,12 +13,21 @@ int reset_turn(int &turn) {
   }
   return turn;
 }
+
+
 int x_win(int &x_points, bool &game) {
   cout << "X wins!";
   cout << "\n";
   x_points++;
-  cout << "X has " << x_points << " points";
-  game = false;
+  cout << "X has " << x_points << " points" << "\n";
+  cout << "do you want to play again?(y, n)" << "\n";
+  char again;
+  cin >> again;
+  if (again == 'n') {
+    game = false;
+  } else {
+    cout << "lets play again";
+  }
   return x_points, game;
 }
 int main() {
