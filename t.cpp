@@ -13,6 +13,14 @@ int reset_turn(int &turn) {
   }
   return turn;
 }
+int x_win(int &x_points, bool &game) {
+  cout << "X wins!";
+  cout << "\n";
+  x_points++;
+  cout << "X has " << x_points << " points";
+  game = false;
+  return x_points, game;
+}
 int main() {
   char board[4][4] = {
     {' ', '1', '2', '3'},
@@ -25,6 +33,7 @@ int main() {
   
   bool game = true;
   int turn = 1;
+  int x_points = 0;
   char turn1 = 'X';
   while (game == true) {
     if (turn == 1) {
@@ -131,30 +140,34 @@ int main() {
 	}
       }
       //eventual win conditions
+	bool run_once = true;
 	for (int i = 0; i < rows; i++) {
 	  for (int j = 0; j < cols; j++) {
-	    //Horizontal
-	    if (board[1][1] == 'X' && board[1][2] == 'X' && board[1][3] == 'X') {
-	      cout << "X wins";
-	    } else if (board[2][1] == 'X' && board[2][2] == 'X' && board[2][3] == 'X') {
-	      cout << "X wins";
-	    } else if (board[3][1] == 'X' && board[3][2] == 'X' && board[3][3] == 'X') {
-	      cout << "X wins";
-	    }
+	    if (run_once == true) {
+	      //Horizontal
+	      if (board[1][1] == 'X' && board[1][2] == 'X' && board[1][3] == 'X') {
+		run_once = false;
+		x_win(x_points, game);
+	      } else if (board[2][1] == 'X' && board[2][2] == 'X' && board[2][3] == 'X') {
+	        cout << "X wins";
+	      } else if (board[3][1] == 'X' && board[3][2] == 'X' && board[3][3] == 'X') {
+	        cout << "X wins";
+	      }
 	    //Vertial
-	    if (board[1][1] == 'X' && board[2][1] == 'X' && board[3][1] == 'X') {
-              cout << "X wins";
-            } else if (board[1][2] == 'X' && board[2][2] == 'X' && board[3][2] == 'X') {
-              cout << "X wins";
-            } else if (board[1][3] == 'X' && board[2][3] == 'X' && board[3][3] == 'X') {
-              cout << "X wins";
-            }
+	      if (board[1][1] == 'X' && board[2][1] == 'X' && board[3][1] == 'X') {
+                cout << "X wins";
+              } else if (board[1][2] == 'X' && board[2][2] == 'X' && board[3][2] == 'X') {
+                cout << "X wins";
+              } else if (board[1][3] == 'X' && board[2][3] == 'X' && board[3][3] == 'X') {
+                cout << "X wins";
+              }
 	    //Diagonals
-	    if (board[1][1] == 'X' && board[2][2] == 'X' && board[3][3] == 'X') {
-              cout << "X wins";
-            } else if (board[3][1] == 'X' && board[2][2] == 'X' && board[1][3] == 'X') {
-              cout << "X wins";
-            } 
+	      if (board[1][1] == 'X' && board[2][2] == 'X' && board[3][3] == 'X') {
+                cout << "X wins";
+              } else if (board[3][1] == 'X' && board[2][2] == 'X' && board[1][3] == 'X') {
+                cout << "X wins";
+              }
+	    }
 
 
 
