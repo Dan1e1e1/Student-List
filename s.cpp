@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstring>
 #include <vector>
-#include <tuple>
+#include <algorithm>
 
 using namespace std;
 struct Student {
@@ -14,6 +14,7 @@ struct Student {
 };
 vector<Student> add(vector<Student>& data_);
 void print(vector<Student> data_);
+void delete_(vector<Student>& data_);
 int main() {
   vector<Student> data_;
   char input[7];
@@ -27,7 +28,7 @@ int main() {
     } else if (strcmp(input, "PRINT") == 0) {
       print(data_);
     } else if (strcmp(input, "DELETE") == 0) {
-      cout << "DELETE";
+      delete_(data_);
     } else if (strcmp(input, "QUIT") == 0) {
       con = false;
     }
@@ -55,4 +56,17 @@ void print(vector<Student> data_) {
         cout << ", " << student.GPA << "\n";
     }
 }
+void delete_(vector<Student>& data_) {
+  Student s;
+  int delete_id;
+  cout << "What id do you want to delete?";
+  cin >> delete_id;
+  data_.erase(
+    remove_if(data_.begin(), data_.end(), [delete_id](const Student& student) {
+      return student.id == delete_id;
+    }),
+    data_.end()
+  );
+}
+
 
