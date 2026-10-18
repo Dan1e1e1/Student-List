@@ -13,7 +13,7 @@ struct Student {
   float GPA;
 };
 vector<Student> add(vector<Student>& data_);
-vector<Student> print(vector<Student> data_);
+void print(vector<Student> data_);
 int main() {
   vector<Student> data_;
   char input[7];
@@ -39,18 +39,20 @@ vector<Student> add(vector<Student>& data_) {
   cin >> s.fname;
   cout << "enter a last name\n";
   cin >> s.lname;
+  cout << "enter an id\n";
+  cin >> s.id;
   cout << "enter a 2 decimal GPA\n";
   cin >> s.GPA;
   data_.push_back(s);
   return data_;
 }
-vector<Student> print(vector<Student> data_) {
+//void because this is just printing, nothing needs to be returned.
+void print(vector<Student> data_) {
     for (const auto& student : data_) {
-        cout << "Name: " << student.fname 
-        cout << ", Last: " << student.lname 
-        cout << ", GPA: " << student.GPA << "\n";
+        cout << student.fname; 
+        cout << " " << student.lname; 
+        cout << ", " << student.id;
+        cout << ", " << student.GPA << "\n";
     }
-    return data_;
-
 }
 
