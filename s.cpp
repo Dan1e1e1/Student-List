@@ -12,11 +12,11 @@ struct Student {
   int id;
   float GPA;
 };
-vector<Student> add(vector<Student>& data_);
-void print(vector<Student> data_);
-void delete_(vector<Student>& data_);
+void add(vector<Student*>& data_);
+void print(vector<Student*> data_);
+void delete_(vector<Student*>& data_);
 int main() {
-  vector<Student> data_;
+  vector<Student*> data_;
   char input[7];
   bool con = true;
   while (con == true) {
@@ -34,36 +34,38 @@ int main() {
     }
   }
 }
-vector<Student> add(vector<Student>& data_) {
-  Student s;
+void add(vector<Student*>& data_) {
+  Student* s = new Student;
   cout << "enter a first name\n";
-  cin >> s.fname;
+  cin >> s->fname;
   cout << "enter a last name\n";
-  cin >> s.lname;
+  cin >> s->lname;
   cout << "enter an id\n";
-  cin >> s.id;
+  cin >> s->id;
   cout << "enter a 2 decimal GPA\n";
-  cin >> s.GPA;
+  cin >> s->GPA;
   data_.push_back(s);
-  return data_;
 }
 //void because this is just printing, nothing needs to be returned.
-void print(vector<Student> data_) {
+void print(vector<Student*> data_) {
     for (const auto& student : data_) {
-        cout << student.fname; 
-        cout << " " << student.lname; 
-        cout << ", " << student.id;
-        cout << ", " << student.GPA << "\n";
+        cout << student->fname; 
+        cout << " " << student->lname; 
+        cout << ", " << student->id;
+        cout << ", " << student->GPA << "\n";
     }
 }
-void delete_(vector<Student>& data_) {
-  Student s;
+void delete_(vector<Student*>& data_) {
   int delete_id;
   cout << "What id do you want to delete?";
   cin >> delete_id;
   data_.erase(
-    remove_if(data_.begin(), data_.end(), [delete_id](const Student& student) {
-      return student.id == delete_id;
+    remove_if(data_.begin(), data_.end(), [delete_id](const Student* student) {
+      if (student->id == delete_id) {
+        delete student;
+        return true;
+      }
+      return false;
     }),
     data_.end()
   );
