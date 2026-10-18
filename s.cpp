@@ -1,24 +1,31 @@
-
+//Daniel Michael 10/18/26 Student List
+//This program allows the user to input a first name, last name, id, and GPA into a vector with the ability to print all values, delete an entry based on the id, and quit.
 
 #include <iostream>
 #include <cstring>
 #include <vector>
+//used for the deleting logic
 #include <algorithm>
+//used for the setprecision and fixed
 #include <iomanip> 
 
 using namespace std;
 struct Student {
-  char fname[10];
-  char lname[10];
+  char fname[15];
+  char lname[15];
   int id;
   float GPA;
 };
+//function prototypes
 void add(vector<Student*>& data_);
+//print function's data_ doesnt need to be passed by reference because it doesnt need to change anything
 void print(vector<Student*> data_);
 void delete_(vector<Student*>& data_);
 int main() {
+  //create vector
   vector<Student*> data_;
   char input[7];
+  //variable for the loop
   bool con = true;
   while (con == true) {
     cout << "\n";
@@ -45,6 +52,7 @@ void add(vector<Student*>& data_) {
   cin >> s->id;
   cout << "enter a GPA\n";
   cin >> s->GPA;
+  //add the entry to the back of the vector
   data_.push_back(s);
 }
 //void because this is just printing, nothing needs to be returned.
@@ -53,6 +61,7 @@ void print(vector<Student*> data_) {
         cout << student->fname; 
         cout << " " << student->lname; 
         cout << ", " << student->id;
+        //setprecision limits the amount of decimals to 2 and fixed makes sure that every entry will be at 2 decimal places.
         cout << setprecision(2) << fixed << ", " << student->GPA <<"\n";
     }
 }
