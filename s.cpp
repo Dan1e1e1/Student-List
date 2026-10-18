@@ -4,6 +4,7 @@
 #include <cstring>
 #include <vector>
 #include <algorithm>
+#include <iomanip> 
 
 using namespace std;
 struct Student {
@@ -42,7 +43,7 @@ void add(vector<Student*>& data_) {
   cin >> s->lname;
   cout << "enter an id\n";
   cin >> s->id;
-  cout << "enter a 2 decimal GPA\n";
+  cout << "enter a GPA\n";
   cin >> s->GPA;
   data_.push_back(s);
 }
@@ -52,7 +53,7 @@ void print(vector<Student*> data_) {
         cout << student->fname; 
         cout << " " << student->lname; 
         cout << ", " << student->id;
-        cout << ", " << student->GPA << "\n";
+        cout << setprecision(2) << fixed << ", " << student->GPA <<"\n";
     }
 }
 void delete_(vector<Student*>& data_) {
